@@ -1,0 +1,1 @@
+CUDA_VISIBLE_DEVICES=0 python tools/eval.py --model_path 'D:/Nam-4-DUT/PBL7/DB++/DBNet.pytorch/output/DBNet_resnet18_FPN_DBHead/checkpoint/model_best.pth'
