@@ -48,7 +48,7 @@ class Pytorch_model:
         else:
             self.device = torch.device("cpu")
         print('device:', self.device)
-        checkpoint = torch.load(model_path, map_location=self.device)
+        checkpoint = torch.load(model_path, map_location=self.device, weights_only=True)
 
         config = checkpoint['config']
         config['arch']['backbone']['pretrained'] = False

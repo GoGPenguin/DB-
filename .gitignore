@@ -1,5 +1,5 @@
 .DS_Store
-*.pth
+# *.pth
 *.pyc
 *.pyo
 *.log
@@ -10,3 +10,4 @@ __pycache__/
 output/
 test/*.jpg
 datasets
+
