@@ -18,14 +18,14 @@ post_processing:
     thresh: 0.3
     box_thresh: 0.5
     max_candidates: 1000
-    unclip_ratio: 1.5 # from paper
+    unclip_ratio: 2.0 # from paper
 metric:
   type: QuadMetric
   args:
     is_output_polygon: false
 loss:
   type: DBLoss
-  alpha: 1
+  alpha: 2
   beta: 10
   ohem_ratio: 3
 optimizer:
@@ -37,10 +37,10 @@ optimizer:
 lr_scheduler:
   type: WarmupPolyLR
   args:
-    warmup_epoch: 3
+    warmup_epoch: 5
 trainer:
   seed: 2
-  epochs: 120
+  epochs: 10
   log_iter: 10
   show_images_iter: 50
   resume_checkpoint: ""
@@ -55,7 +55,7 @@ dataset:
           - /kaggle/working/DB-/train.txt
         img_mode: RGB
     loader:
-      batch_size: 8
+      batch_size: 16
       shuffle: true
       pin_memory: true
       num_workers: 6
