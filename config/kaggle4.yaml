@@ -16,9 +16,9 @@ post_processing:
   type: SegDetectorRepresenter
   args:
     thresh: 0.3
-    box_thresh: 0.7
+    box_thresh: 0.5
     max_candidates: 1000
-    unclip_ratio: 1.5 # from paper
+    unclip_ratio: 1.7 # from paper
 metric:
   type: QuadMetric
   args:
@@ -31,7 +31,7 @@ loss:
 optimizer:
   type: Adam
   args:
-    lr: 0.001
+    lr: 0.0001
     weight_decay: 0
     amsgrad: true
 lr_scheduler:
@@ -40,7 +40,7 @@ lr_scheduler:
     warmup_epoch: 3
 trainer:
   seed: 2
-  epochs: 120
+  epochs: 200
   log_iter: 10
   show_images_iter: 50
   resume_checkpoint: ""
@@ -55,7 +55,7 @@ dataset:
           - /kaggle/working/DB-/train.txt
         img_mode: RGB
     loader:
-      batch_size: 8
+      batch_size: 16
       shuffle: true
       pin_memory: true
       num_workers: 6
