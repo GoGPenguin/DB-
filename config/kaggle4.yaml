@@ -1,9 +1,9 @@
 name: DBNet
-base: ["config/icdar2015.yaml"]
+base: ["config/SynthText.yaml"]
 arch:
   type: Model
   backbone:
-    type: resnet18
+    type: resnet34
     pretrained: true
   neck:
     type: FPN
@@ -15,17 +15,17 @@ arch:
 post_processing:
   type: SegDetectorRepresenter
   args:
-    thresh: 0.25
-    box_thresh: 0.35
+    thresh: 0.3
+    box_thresh: 0.7
     max_candidates: 1000
-    unclip_ratio: 2.0 # from paper
+    unclip_ratio: 1.5 # from paper
 metric:
   type: QuadMetric
   args:
     is_output_polygon: false
 loss:
   type: DBLoss
-  alpha: 1
+  alpha: 2
   beta: 10
   ohem_ratio: 3
 optimizer:
@@ -40,22 +40,21 @@ lr_scheduler:
     warmup_epoch: 3
 trainer:
   seed: 2
-  epochs: 100
+  epochs: 1200
   log_iter: 10
   show_images_iter: 50
   resume_checkpoint: ""
-  finetune_checkpoint: "/kaggle/working/DB-/model_best.pth"
+  finetune_checkpoint: ""
   output_dir: output
   tensorboard: true
 dataset:
   train:
     dataset:
       args:
-        data_path:
-          - /kaggle/working/DB-/train.txt
+        data_path: ./datasets/SynthText
         img_mode: RGB
     loader:
-      batch_size: 16
+      batch_size: 2
       shuffle: true
       pin_memory: true
       num_workers: 6
