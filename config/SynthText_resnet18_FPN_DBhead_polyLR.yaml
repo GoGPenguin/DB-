@@ -1,5 +1,5 @@
 name: DBNet
-base: ["config/SynthText.yaml"]
+base: ['config/SynthText.yaml']
 arch:
   type: Model
   backbone:
@@ -43,8 +43,8 @@ trainer:
   epochs: 1200
   log_iter: 10
   show_images_iter: 50
-  resume_checkpoint: ""
-  finetune_checkpoint: ""
+  resume_checkpoint: ''
+  finetune_checkpoint: ''
   output_dir: output
   tensorboard: true
 dataset:
@@ -58,21 +58,4 @@ dataset:
       shuffle: true
       pin_memory: true
       num_workers: 6
-      collate_fn: ""
-  validate:
-    dataset:
-      args:
-        data_path:
-          - /kaggle/working/DB-/test.txt
-        pre_processes:
-          - type: ResizeShortSize
-            args:
-              short_size: 736
-              resize_text_polys: false
-        img_mode: RGB
-    loader:
-      batch_size: 1
-      shuffle: true
-      pin_memory: false
-      num_workers: 6
-      collate_fn: ICDARCollectFN
+      collate_fn: ''

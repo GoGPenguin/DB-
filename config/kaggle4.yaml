@@ -51,7 +51,7 @@ dataset:
   train:
     dataset:
       args:
-        data_path: /kaggle/working/DB-/train.txt
+        data_path: "/kaggle/working/DB-/train.txt"
         img_mode: RGB
     loader:
       batch_size: 2
@@ -62,7 +62,7 @@ dataset:
   validate:
     dataset:
       args:
-        data_path: /kaggle/working/DB-/test.txt
+        data_path: "/kaggle/working/DB-/test.txt"
         pre_processes:
           - type: ResizeShortSize
             args:
