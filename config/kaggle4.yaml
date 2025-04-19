@@ -16,9 +16,9 @@ post_processing:
   type: SegDetectorRepresenter
   args:
     thresh: 0.3
-    box_thresh: 0.5
+    box_thresh: 0.6
     max_candidates: 1000
-    unclip_ratio: 1.8 # from paper
+    unclip_ratio: 1.5 # from paper
 metric:
   type: QuadMetric
   args:
@@ -27,11 +27,11 @@ loss:
   type: DBLoss
   alpha: 2
   beta: 10
-  ohem_ratio: 3
+  ohem_ratio: 1.5    
 optimizer:
   type: Adam
   args:
-    lr: 0.0005
+    lr: 0.001
     weight_decay: 0
     amsgrad: true
 lr_scheduler:
