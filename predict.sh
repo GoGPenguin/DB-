@@ -1,1 +1,2 @@
 CUDA_VISIBLE_DEVICES=0 python tools/predict.py --model_path output/DBNet_resnet18_FPN_DBHead/checkpoint/model_best.pth --input_folder ./test --output_folder ./output --thre 0.7 --polygon --show --save_resut
+python DBNET.pytorch/tools/predict.py --model_path 3003/model_best.pth --input_folder ./DBNET.pytorch/test --output_folder ./output --thre 0.7 --polygon --show --save_resut
