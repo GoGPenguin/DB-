@@ -40,11 +40,11 @@ lr_scheduler:
     warmup_epoch: 3
 trainer:
   seed: 2
-  epochs: 100
+  epochs: 120
   log_iter: 10
   show_images_iter: 50
   resume_checkpoint: ""
-  finetune_checkpoint: "/kaggle/working/DB-/model_best.pth"
+  finetune_checkpoint: ""
   output_dir: output
   tensorboard: true
 dataset:
